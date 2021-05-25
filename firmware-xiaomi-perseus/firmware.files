@@ -1,0 +1,15 @@
+./lib/firmware/postmarketos/ath10k/WCN3990/hw1.0/board-2.bin
+./lib/firmware/qcom/sdm845/perseus/adspr.jsn
+./lib/firmware/qcom/sdm845/perseus/adspua.jsn
+./lib/firmware/qcom/sdm845/perseus/cdspr.jsn
+./lib/firmware/qcom/sdm845/perseus/modemr.jsn
+./lib/firmware/qcom/sdm845/perseus/modemuw.jsn
+./lib/firmware/qcom/sdm845/perseus/slpir.jsn
+./lib/firmware/qcom/sdm845/perseus/slpius.jsn
+./lib/firmware/qcom/sdm845/perseus/wlanmdsp.mbn
+./lib/firmware/qcom/sdm845/perseus/a630_zap.mbn
+./lib/firmware/qcom/sdm845/perseus/adsp.mbn
+./lib/firmware/qcom/sdm845/perseus/cdsp.mbn
+./lib/firmware/qcom/sdm845/perseus/ipa_fws.mbn
+./lib/firmware/qcom/sdm845/perseus/mba.mbn
+./lib/firmware/qcom/sdm845/perseus/modem.mbn

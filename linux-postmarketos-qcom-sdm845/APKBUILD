@@ -1,0 +1,57 @@
+# Maintainer: Caleb Connolly <caleb@connolly.tech>
+# Co-Maintainer: Joel Selvaraj <jo@jsfamily.in>
+# Stable Linux kernel with patches for SDM845 devices
+# Kernel config based on: arch/arm64/configs/defconfig and sdm845.config
+
+_flavor="postmarketos-qcom-sdm845"
+pkgname=linux-$_flavor
+pkgver=5.12
+pkgrel=2
+pkgdesc="Mainline Kernel fork for SDM845 devices"
+arch="aarch64"
+_carch="arm64"
+url="https://gitlab.com/YaCodesDevelopment/linux"
+license="GPL-2.0-only"
+options="!strip !check !tracedeps pmb:cross-native"
+makedepends="bison findutils flex installkernel openssl-dev perl"
+
+_repo="linux"
+_config="config-$_flavor.$arch"
+_commit="3784b9ae9ae4fea419ccedf2889279120771a7a5"
+
+# Source
+source="
+	$_repo-$_commit.tar.gz::https://gitlab.com/YaCodesDevelopment/$_repo/-/archive/$_commit/$_repo-$_commit.tar.gz
+	$_config
+"
+builddir="$srcdir/$_repo-$_commit"
+
+prepare() {
+	default_prepare
+	cp "$srcdir/config-$_flavor.$arch" .config
+}
+
+build() {
+	unset LDFLAGS
+	make ARCH="$_carch" CC="${CC:-gcc}" \
+		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-$_flavor"
+}
+
+package() {
+	mkdir -p "$pkgdir"/boot
+	make zinstall modules_install dtbs_install \
+		ARCH="$_carch" \
+		INSTALL_PATH="$pkgdir"/boot/ \
+		INSTALL_MOD_PATH="$pkgdir" \
+		INSTALL_MOD_STRIP=1 \
+		INSTALL_DTBS_PATH="$pkgdir"/usr/share/dtb
+	rm -f "$pkgdir"/lib/modules/*/build "$pkgdir"/lib/modules/*/source
+
+	install -D "$builddir"/include/config/kernel.release \
+		"$pkgdir"/usr/share/kernel/$_flavor/kernel.release
+}
+
+sha512sums="
+710904ee3d60daf566c1d083696fd83c0bda731b41bc54cbde90d3f3316b7ff9d2a0d21cc844cac7bed884b01cfb4cd231eeb82e4c9ec7017d2ccc83a5de7614  linux-3784b9ae9ae4fea419ccedf2889279120771a7a5.tar.gz
+5bae2fdd558b29854779e503d8fa125d8de03c8da01cbe40207bacde2e5688178bae2840b85b3733a5dab96d256611c594a6abb70274ed7171224080817ef94b  config-postmarketos-qcom-sdm845.aarch64
+"
