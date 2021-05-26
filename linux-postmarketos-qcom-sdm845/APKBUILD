@@ -17,7 +17,7 @@ makedepends="bison findutils flex installkernel openssl-dev perl"
 
 _repo="linux"
 _config="config-$_flavor.$arch"
-_commit="3784b9ae9ae4fea419ccedf2889279120771a7a5"
+_commit="c2abd4af78b268765add45f4ce174913f7f410ab"
 
 # Source
 source="
@@ -51,7 +51,8 @@ package() {
 		"$pkgdir"/usr/share/kernel/$_flavor/kernel.release
 }
 
+
 sha512sums="
-710904ee3d60daf566c1d083696fd83c0bda731b41bc54cbde90d3f3316b7ff9d2a0d21cc844cac7bed884b01cfb4cd231eeb82e4c9ec7017d2ccc83a5de7614  linux-3784b9ae9ae4fea419ccedf2889279120771a7a5.tar.gz
+66daa70db577f2d48d4a4fdd8192d2b5a5071345c896d0e84c7ae7662a45293986b0ed952220f9f8e2c776c511c6db5fb4a6ac1e1853db5a0c2945ee7944a758  linux-c2abd4af78b268765add45f4ce174913f7f410ab.tar.gz
 5bae2fdd558b29854779e503d8fa125d8de03c8da01cbe40207bacde2e5688178bae2840b85b3733a5dab96d256611c594a6abb70274ed7171224080817ef94b  config-postmarketos-qcom-sdm845.aarch64
 "
