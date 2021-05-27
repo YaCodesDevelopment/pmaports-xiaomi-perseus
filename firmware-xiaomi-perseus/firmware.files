@@ -6,6 +6,8 @@
 ./lib/firmware/qcom/sdm845/perseus/modemuw.jsn
 ./lib/firmware/qcom/sdm845/perseus/slpir.jsn
 ./lib/firmware/qcom/sdm845/perseus/slpius.jsn
+./lib/firmware/postmarketos/qca/crbtfw21.tlv
+./lib/firmware/qca/perseus/crnv21.bin
 ./lib/firmware/qcom/sdm845/perseus/wlanmdsp.mbn
 ./lib/firmware/qcom/sdm845/perseus/a630_zap.mbn
 ./lib/firmware/qcom/sdm845/perseus/adsp.mbn
