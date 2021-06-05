@@ -17,7 +17,7 @@ makedepends="bison findutils flex installkernel openssl-dev perl"
 
 _repo="linux"
 _config="config-$_flavor.$arch"
-_commit="ace2e127b3bad18355f28f7dcc1642eb6b188231"
+_commit="0b0ca4761bc80bcaba41633127182d88dfe3a263"
 
 # Source
 source="
